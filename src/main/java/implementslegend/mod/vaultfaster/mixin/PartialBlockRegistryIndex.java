@@ -33,7 +33,7 @@ public class PartialBlockRegistryIndex implements IndexedBlock {
             regIdx= FixatedBlockIDsKt.getIdForBlock(((ForgeRegistry<Block>) ForgeRegistries.BLOCKS).getValue(this.id));
             if(regIdx==0 ) {
                 var resName = ((PartialBlockIDAccessor)this).getId();
-                if(!resName.getNamespace().equals("minecraft") && !resName.getPath().equals("air")) regIdx=-666;
+                if(resName != null && !resName.getNamespace().equals("minecraft") && !resName.getPath().equals("air")) regIdx=-666;
             }
         }
         return regIdx;
